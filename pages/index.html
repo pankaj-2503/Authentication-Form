@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authorization Form</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="container">
+        <h2>SignUp Form</h2>
+        <!-- Form -->
+        <form method="post" action="/signup" class="body">
+          <!-- Name -->
+          <div class="form-details">
+            <label for="formlabel1">Name</label>
+            <input type="text" class="control"  placeholder="name"/>
+          </div>
+          <!-- Email -->
+          <div class="form-details">
+            <label for="formlabel1" >Email</label>
+            <input type="email" class="control" placeholder="email" />
+          </div>
+          <!-- Password -->
+          <div class="form-details">
+            <label for="formlabel1">Password</label>
+            <input type="text" class="control1" placeholder="wer123XXX"/>
+          </div>
+          <button type="submit" class="btn">SignUp</button>
+        </form>
+      </div>
+
+    </div>
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(to  left, #33ccff 0%, #ff99cc 88%);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+      .main{
+        align-items: center;
+        max-width: 900px;
+        margin:auto auto;
+      }
+      .container{
+        max-width: 400px;
+        
+        margin: 170px auto;
+        height: 350px;
+        border: 3px solid rgb(238, 238, 238);
+        border-radius: 10px ;
+        text-align: center;
+      }
+      .container h2{
+        color: white;
+        margin:20px auto;
+        font-size: 27px;
+        padding: 5px auto;
+      }
+      .body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 20px auto;
+
+      }
+      .form-details{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        margin: 20px auto;
+      }
+      .form-details label{
+        color: white;
+        font-size: 17px;
+        font-weight: 300;
+        
+      }
+      .form-details input{
+        border: none;
+        outline: none;
+        padding:6px 4px;
+        border-radius: 4px;
+        color: gray;
+
+      }
+      .control{
+        margin-left: 24px;
+      }
+      .btn{
+        border: none;
+        outline: none;
+        color:rgb(93, 92, 92);
+        padding:5px 10px;
+        margin-top: 15px;
+        background-color: white;
+        border-radius: 10px;
+        width: 80px;
+        height: 35px;
+        text-align: center;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+      }
+     
+
+
+    </style>
+  </body>
+</html>
