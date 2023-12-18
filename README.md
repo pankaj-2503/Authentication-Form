@@ -2,7 +2,7 @@
 ### Authentication Form Project with Node.js, Express, Mongoose, NPM, and MongoDB
 This project is a simple authentication form built using Node.js, Express, Mongoose, NPM, and MongoDB. It provides a basic structure for user authentication, allowing users to sign up, log in, and log out securely. The project is designed to be a starting point for developers who want to implement authentication in their Node.js applications.
 ---
-
+### Live Preview : https://authentication-form.onrender.com/
 ## Table of Contents
 - Features
 - Prerequisites
@@ -42,13 +42,11 @@ Navigate to the project directory:
 npm install
 ```
 
-Usage
-Start MongoDB:
 
-bash
-Copy code
 # Run MongoDB as a daemon process
+```
 mongod
+```
 Start the application:
 
 ---
