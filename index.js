@@ -1,7 +1,8 @@
-const bodyParser = require("body-parser");
-const express=require("express");
+const express = require("express");
 const app=express();
 const mongoose=require("mongoose");
+const bodyParser = require("body-parser");
+
 const dotenv=require("dotenv");
 dotenv.config();
 
@@ -10,7 +11,11 @@ const password=process.env.MONGODB_PASSWORD;
 const port=process.env.PORT || 3000;
 
 //database connection
-mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.h728xwt.mongodb.net/signup`);
+mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.v0vlivx.mongodb.net/?retryWrites=true&w=majority`,{
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
+
+});
 
 //schema
 const registrationSchema=mongoose.Schema({
@@ -19,7 +24,7 @@ const registrationSchema=mongoose.Schema({
     password:String
 })
 
-const signup=mongoose.model("SignUp",registrationSchema);
+const Signup=mongoose.model("SignUp",registrationSchema);
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -31,24 +36,25 @@ app.get('/',(req,res)=>{
 });
 
 
-app.post('/signup',async(req,res)=>{
+app.post('/signup',async (req,res)=>{
     try{
         const {name,email,password}=req.body;
-        const existingUser=await signup.findOne({email:email}); // check if user already exist  or not
+        const existingUser=await Signup.findOne({email:email}); // check if user already exist  or not
         if(!existingUser){
-            const signupData=new signup({
+            const signupData=new Signup({
                 name,
                 email,
                 password
             });
             await signupData.save();
             res.redirect("/success");
-           
-            
 
         }
-        
-
+        else{
+            console.log("User Already Exist!");
+            res.redirect("/error");
+        }
+            
     }
     catch(err){
         console.log(err);
@@ -63,6 +69,8 @@ app.get("/success",(req,res)=>{
 app.get("/error",(req,res)=>{
     res.sendFile(__dirname+"/pages/Error.html");
 })
+
+
 
 
 
